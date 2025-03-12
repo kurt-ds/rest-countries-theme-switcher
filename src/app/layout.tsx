@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunitoSans.variable} antialiased`}>
+      <body className={`${nunitoSans.variable} antialiased bg-primary`}>
         <ThemeProvider>
           {children}
         </ThemeProvider>
