@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark*));
+
 @theme {
-  --color-dark-primary: hsl(207, 26%, 17%);
-  --color-light-primary: hsl(0, 0%, 52%);
-  --color-dark-body: hsl(0, 0%, 100%);
-  --color-light-body: hsl(200, 15%, 8%);
-  --color-dark-secondary: hsl(209, 23%, 22%);
-  --color-light-secondary: hsl(0, 0%, 100%);
-  --color-light-input: hsl(0, 0%, 52%);
+  --color-primary: hsl(0, 0%, 100%);
+  --color-body: hsl(200, 15%, 8%);
+  --color-secondary: hsl(0, 0%, 52%);
+  --color-input: hsl(0, 0%, 52%);
+}
+
+@layer theme {
+  .dark {
+    --color-primary: hsl(207, 26%, 17%);
+    --color-body: hsl(0, 0%, 100%);
+    --color-secondary: hsl(209, 23%, 22%);
+  }
 }
