@@ -32,9 +32,11 @@ export default async function fetchCountries() {
       flag: country.flags.png, // You may also include the flag for display
     }));
 
+
+    const limitedData = filteredData.slice(0, 50);
+
     
-    console.log(filteredData);
-    return filteredData;
+    return limitedData;
   } catch (error) {
     // TypeScript should now recognize that an error can occur here
     console.error('Error fetching data:', error);
