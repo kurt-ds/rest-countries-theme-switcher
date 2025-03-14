@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import fetchCountries from "../actions";
 import NavBar from '../components/NavBar';
 import CountryList from "@/components/CountryList";
+import FilterControls from "@/components/FilterControls";
 
 interface Country {
   name: string;
@@ -15,6 +16,7 @@ interface Country {
 export default function Home() {
   const [countries, setCountries] = useState<Country[] | undefined>([]);
   const [loading, setLoading] = useState(true);
+  const [regionFilter, setRegionFilter] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +31,13 @@ export default function Home() {
     fetchData();
   }, []); // Empty dependency array means this effect runs only once on mount
 
+
+  const filteredCountries = countries?.filter((country) => {
+    if (!regionFilter) return true;
+    return country.region === regionFilter;
+  });
+
+
   if (loading)
     return (
   <>
@@ -40,9 +49,13 @@ export default function Home() {
     );
 
   return (
-    <>
+    <div className="" >
       <NavBar />
-      <CountryList countries={countries} />
-    </>
+      <FilterControls
+        regionFilter={regionFilter}
+        setRegionFilter={setRegionFilter}
+      />
+      <CountryList countries={filteredCountries} />
+    </div>
   );
 }
