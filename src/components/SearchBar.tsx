@@ -1,25 +1,39 @@
-import { useState } from "react";
+"use client";
+import React from "react";
 
-interface SearchBarProps {
-  onSearch: (query: string) => void;
+interface SearchProps {
+  searchQuery: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-    onSearch(e.target.value);
-  };
-
+const SearchBar: React.FC<SearchProps> = ({
+  searchQuery,
+  setSearchQuery
+}) => {
   return (
-    <input
-      type="text"
-      placeholder="Search for a country..."
-      value={query}
-      onChange={handleSearch}
-      className="w-full p-2 border rounded-md shadow-sm dark:bg-gray-800 dark:text-white"
-    />
+<div className="p-4 shadow-2xl mx-4 my-2 rounded-lg relative">
+        <input
+          type="text"
+          placeholder="Search for a country..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="p-2 rounded w-full text-body pl-10"
+        />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500" // Icon positioning and styling
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        />
+      </svg>
+      </div>
   );
 };
 

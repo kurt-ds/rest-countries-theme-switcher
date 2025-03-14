@@ -4,6 +4,7 @@ import fetchCountries from "../actions";
 import NavBar from '../components/NavBar';
 import CountryList from "@/components/CountryList";
 import FilterControls from "@/components/FilterControls";
+import SearchBar from "@/components/SearchBar";
 
 interface Country {
   name: string;
@@ -17,6 +18,7 @@ export default function Home() {
   const [countries, setCountries] = useState<Country[] | undefined>([]);
   const [loading, setLoading] = useState(true);
   const [regionFilter, setRegionFilter] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,8 +35,11 @@ export default function Home() {
 
 
   const filteredCountries = countries?.filter((country) => {
-    if (!regionFilter) return true;
-    return country.region === regionFilter;
+    if (!regionFilter && !searchQuery) return true;
+    const regionMatch = !regionFilter || country.region === regionFilter;
+    const searchMatch = !searchQuery || country.name.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return regionMatch && searchMatch;
   });
 
 
@@ -51,6 +56,10 @@ export default function Home() {
   return (
     <div className="" >
       <NavBar />
+      <SearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <FilterControls
         regionFilter={regionFilter}
         setRegionFilter={setRegionFilter}
