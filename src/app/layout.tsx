@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "../styles/globals.css"; // ✅ Import global styles
 import { ThemeProvider } from "@/context/ThemeContext";
+import NavBar from "@/components/NavBar";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito",
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${nunitoSans.variable} antialiased bg-primary`}>
         <ThemeProvider>
+          <NavBar/>
           {children}
         </ThemeProvider>
       </body>

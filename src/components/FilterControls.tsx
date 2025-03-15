@@ -11,13 +11,13 @@ const FilterControls: React.FC<FilterControlsProps> = ({
   setRegionFilter,
 }) => {
   return (
-    <div className="mx-4 mt-5 w-11/16 relative shadow-2xl rounded-lg">
+    <div className="mx-4 my-5 w-11/16 relative shadow-4xl rounded-lg bg-secondary">
       {" "}
       {/* Make parent relative */}
       <select
         value={regionFilter}
         onChange={(e) => setRegionFilter(e.target.value)}
-        className="text-body text-[14px] bg-primary py-5 px-8 rounded appearance-none w-full" // appearance-none hides default arrow
+        className="text-body text-[14px] bg-secondary py-5 px-8 rounded appearance-none w-full " // appearance-none hides default arrow
       >
         <option value="">Filter by Region</option>
         <option value="Africa">Africa</option>

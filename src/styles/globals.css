@@ -5,15 +5,22 @@
 @theme {
   --color-primary: hsl(0, 0%, 100%);
   --color-body: hsl(200, 15%, 8%);
+  --color-body-muted: hsl(200, 15%, 50%);
   --color-secondary: hsl(0, 0%, 98%);
+  --color-tertiary: hsl(0, 0%, 92%);
   --color-input: hsl(0, 0%, 52%);
+  --shadow-4xl: 0px 0 30px 5px rgba(0, 0, 0, 0.2);
+  --text-home: 14px;
+  --text-detail: 16px;
 }
 
 @layer theme {
   .dark {
     --color-primary: hsl(207, 26%, 17%);
     --color-body: hsl(0, 0%, 100%);
+    --color-body-muted: hsl(0, 0%, 50%);
     --color-secondary: hsl(209, 23%, 22%);
+    --color-tertiary: hsl(211, 20%, 27%);
   }
 }
 

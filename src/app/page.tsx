@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import fetchCountries from "../actions";
-import NavBar from '../components/NavBar';
+import {fetchCountries} from "../actions";
 import CountryList from "@/components/CountryList";
 import FilterControls from "@/components/FilterControls";
 import SearchBar from "@/components/SearchBar";
 
 interface Country {
+  cca3: string;
   name: string;
   population: number;
   region: string;
@@ -26,8 +26,6 @@ export default function Home() {
 
       setCountries(data);
       setLoading(false);
-
-      console.log(data);
     };
 
     fetchData();
@@ -46,7 +44,6 @@ export default function Home() {
   if (loading)
     return (
   <>
-      <NavBar />
       <div className="flex justify-center items-center h-screen">
       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-body"></div>
       </div>
@@ -54,8 +51,7 @@ export default function Home() {
     );
 
   return (
-    <div className="" >
-      <NavBar />
+    <div className="text-home" >
       <SearchBar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
