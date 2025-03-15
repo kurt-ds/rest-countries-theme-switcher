@@ -17,12 +17,12 @@ export default function CountryList({
   countries: Country[] | undefined;
 }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-5 m-4 xl:gap-20 xl:mx-20">
       {countries?.map((country) => (
         <Link key={country.cca3} href={`/${country.cca3}`} passHref>
           <div
             key={country.cca3}
-            className="rounded-lg shadow-2xl mx-8  my-3 flex flex-col cursor-pointer bg-secondary"
+            className="rounded-lg shadow-2xl mx-8 sm:mx-0 my-3 flex flex-col cursor-pointer bg-secondary xl:my-0"
           >
             <div className="">
               <Image

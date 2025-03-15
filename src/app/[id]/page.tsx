@@ -65,8 +65,8 @@ export default function Page() {
   }
 
   return (
-    <div className="my-10 mx-8">
-      <Link key="/back" href={"/"} passHref className="bg-secondary shadow-4xl px-6 py-1.5 mt-10 mb-20 flex w-min items-center gap-2 hover:bg-tertiary text-detail text-body" ><svg
+    <div className="my-10 mx-8 xl:mx-20">
+      <Link key="/back" href={"/"} passHref className="bg-secondary shadow-4xl px-6 py-1.5 mt-10 mb-20 flex w-min items-center gap-2 hover:bg-tertiary text-detail text-body rounded-md" ><svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6 mr-2" // Adjust size and margin
           fill="none"

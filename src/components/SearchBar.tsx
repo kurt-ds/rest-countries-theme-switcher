@@ -11,13 +11,13 @@ const SearchBar: React.FC<SearchProps> = ({
   setSearchQuery
 }) => {
   return (
-<div className="bg-secondary text-body p-4 shadow-4xl mx-4 my-8 rounded-lg relative">
+<div className="bg-secondary text-body shadow-4xl my-8 rounded-lg relative h-12 w-full max-w-xl flex">
         <input
           type="text"
           placeholder="Search for a country..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="p-2 rounded w-full text-body pl-10 placeholder-body-muted"
+          className="p-2 rounded w-full text-body pl-14 placeholder-body-muted"
         />
       <svg
         xmlns="http://www.w3.org/2000/svg"

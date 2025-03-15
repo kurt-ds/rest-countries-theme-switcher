@@ -52,6 +52,7 @@ export default function Home() {
 
   return (
     <div className="text-home" >
+      <div className="flex flex-col sm:gap-5 items-start sm:justify-between sm:items-center mx-5 sm:flex-row xl:mx-20" >
       <SearchBar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -60,6 +61,7 @@ export default function Home() {
         regionFilter={regionFilter}
         setRegionFilter={setRegionFilter}
       />
+      </div>
       <CountryList countries={filteredCountries} />
     </div>
   );
