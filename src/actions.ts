@@ -61,9 +61,11 @@ interface DetailedCountry {
 
 export async function fetchCountries() {
   try {
-    const response = await fetch('https://restcountries.com/v3.1/all');
+    const fields = 'cca3,name,population,region,capital,flags';
+    const response = await fetch(`https://restcountries.com/v3.1/all?fields=${fields}`);
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      console.error(`HTTP error! status: ${response.status}`);
+      return []; // Or throw the error to be handled by the component
     }
     const data: Country[] = await response.json();
 
@@ -73,16 +75,13 @@ export async function fetchCountries() {
       population: country.population,
       region: country.region,
       capital: country.capital ? country.capital[0] : "N/A",
-      flag: country.flags.png, // You may also include the flag for display
+      flag: country.flags.png,
     }));
-
-
 
     return filteredData;
   } catch (error) {
-    // TypeScript should now recognize that an error can occur here
     console.error('Error fetching data:', error);
-    // Handle the error appropriately (e.g., return a default value, display an error message)
+    return []; // Or throw the error to be handled by the component
   }
 }
 
